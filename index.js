@@ -3,6 +3,7 @@ const cheerio = require('cheerio').default;
 const baseUrl = require('./helper.json').base_url;
 
 function kbbi(query) {
+    if(!query) throw new Error('Masukkan kata!');
     return new Promise((resolve, reject) => {
         axios.get(`${baseUrl}/entri/${query}`)
             .then((response) => {
