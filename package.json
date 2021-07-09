@@ -1,14 +1,14 @@
 {
   "name": "kbbi-scraper",
-  "version": "1.0.0",
-  "description": "Kamus Besar Bahasa Indonesia API",
+  "version": "1.0.5",
+  "description": "📚 Kamus Besar Bahasa Indonesia",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/Yuzaki01/kbbi-scraper.git"
   },
   "keywords": [
     "kbbi",
@@ -22,10 +22,11 @@
     "indo",
     "indonesia"
   ],
-  "author": "Natsu062",
-  "license": "ISC",
+  "author": "Yuu",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.10"
-  }
+  },
+  "homepage": "https://github.com/Yuzaki01/kbbi-scraper#readme"
 }
