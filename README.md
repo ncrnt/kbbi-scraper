@@ -1,19 +1,19 @@
 # Kamus Besar Bahasa Indonesia
 
-## ⚡ **Installation**
+### ⚡ **Installation**
 ```
 $ npm i kbbi-scraper
 ```
-## 🔰 **Usage**
+### 🔰 **Usage**
 ```js
-const api = require('kbbi-scraper');
+const kbbi = require('kbbi-scraper');
 
 (async () => {
     const query = 'pohon'
 
-    api.KBBI(query).then(res => {
+    kbbi(query).then(res => {
         console.log(res);
-    })
+    }).catch(console.error());
 })()
 
 ```
