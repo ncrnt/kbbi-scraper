@@ -1,8 +1,8 @@
 const axios = require('axios').default;
-const cheerio = require('cheerio').default;
+const cheerio = require('cheerio');
 const baseUrl = require('./helper.json').base_url;
 
-function kbbi(query) {
+module.exports = (query) => {
     if(!query) throw new Error('Masukkan kata!');
     return new Promise((resolve, reject) => {
         axios.get(`${baseUrl}/entri/${query}`)
@@ -17,14 +17,12 @@ function kbbi(query) {
                             ? null
                             : $(this).find('h2').text().trim(),
 
-                            hasil.arti = $(this).find('ol').find('li').text().replace(/\s+/g, ' ').trim() == ''
+                            hasil.arti = $(this).find('li').eq(0).text().replace(/\s+/g, ' ').trim() == ''
                                 ? null
-                                : $(this).find('ol').find('li').text().replace(/\s+/g, ' ').trim()
+                                : $(this).find('li').eq(0).text().replace(/\s+/g, ' ').trim()
                     });
 
                     const finalHasil = {
-                        author: 'Nathz',
-                        donasi: 'https://saweria.co/Natsu062',
                         error: false,
                         data: hasil
                     }
@@ -39,8 +37,6 @@ function kbbi(query) {
                         resolve(dataError);
                     }
                 }
-            }).catch(err => console.log(err));
+            }).catch(console.error());
     })
 }
-
-module.exports.KBBI = kbbi
