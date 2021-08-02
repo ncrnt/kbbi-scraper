@@ -16,7 +16,6 @@ module.exports = (query) => {
                         hasil.title = $(this).find('h2').text().trim() == ''
                             ? null
                             : $(this).find('h2').text().trim(),
-
                             hasil.arti = $(this).find('li').eq(0).text().replace(/\s+/g, ' ').trim() == ''
                                 ? null
                                 : $(this).find('li').eq(0).text().replace(/\s+/g, ' ').trim()
@@ -27,13 +26,15 @@ module.exports = (query) => {
                         data: hasil
                     }
 
-                    if (hasil.arti !== null) {
+                    const dataError = {
+                        message: 'Kata tidak ditemukan!',
+                        error: true
+                    }
+
+                    if (hasil.arti !== 'memudahkan pencarian Anda melalui fitur yang hanya tersedia bagi pengguna terdaftar serta') {
+                        if(hasil.arti === null) return resolve(dataError);
                         resolve(finalHasil)
                     } else {
-                        const dataError = {
-                            message: 'Kata tidak ditemukan!',
-                            error: true
-                        }
                         resolve(dataError);
                     }
                 }
