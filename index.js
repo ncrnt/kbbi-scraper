@@ -16,6 +16,7 @@ module.exports = (query) => {
                         hasil.title = $(this).find('h2').text().trim() == ''
                             ? null
                             : $(this).find('h2').text().trim(),
+
                             hasil.arti = $(this).find('li').eq(0).text().replace(/\s+/g, ' ').trim() == ''
                                 ? null
                                 : $(this).find('li').eq(0).text().replace(/\s+/g, ' ').trim()
