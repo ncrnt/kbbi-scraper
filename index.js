@@ -23,6 +23,7 @@ module.exports = (query) => {
                     });
 
                     const finalHasil = {
+                        message: 'Berhasil!',
                         error: false,
                         data: hasil
                     }
