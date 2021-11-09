@@ -28,10 +28,11 @@ module.exports = (query) => {
 
                     const dataError = {
                         message: 'Kata tidak ditemukan!',
-                        error: true
+                        error: true,
+                        data: {}
                     }
 
-                    if (hasil.arti !== 'memudahkan pencarian Anda melalui fitur yang hanya tersedia bagi pengguna terdaftar serta') {
+                    if (hasil.arti !== 'memudahkan pencarian Anda melalui berbagai fitur yang hanya tersedia bagi pengguna terdaftar') {
                         if(hasil.arti === null) return resolve(dataError);
                         resolve(finalHasil)
                     } else {
